@@ -7,7 +7,9 @@ const express = require('express');
 const app = express();
 const routes = require('./configure');
 const bodyParser = require('body-parser');
-const dbcreation = require('./db/db-creation');
+const dbType = require('./db/db-type')
+const dbConfig = require('./db/config');
+const { conn, type } = require('@web-times-team/db-handler').dbCreation(dbType, dbConfig);
 const cors = require('cors');
 
 app.use(cors());

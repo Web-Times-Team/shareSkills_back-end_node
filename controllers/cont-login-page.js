@@ -3,6 +3,7 @@
  */
 const dbInstanciator = require('../db/db-instanciator')
 const dbInterface = dbInstanciator.dbInterface;
+const usersTable = 'users'
 class user {
     constructor(id,
         userName,
@@ -58,8 +59,9 @@ class user {
     }
 }
 
-exports.createUser = (req, res) => {
-    dbInterface.insertInTable('users', req.body).then((result) => {
+exports.addUser = (req, res) => {
+
+    dbInterface.insertInTable(usersTable, req.body).then((result) => {
         res.json({
             user: result
         });
@@ -69,7 +71,7 @@ exports.createUser = (req, res) => {
 
 }
 exports.getUser = (req, res) => {
-    dbInterface.getDataFromTableWhere('users', req.body).then((result) => {
+    dbInterface.getDataFromTableWhere(usersTable, req.body).then((result) => {
         res.json({
             user: result
         });
