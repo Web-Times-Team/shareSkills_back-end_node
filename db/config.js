@@ -29,19 +29,19 @@ const dbTables = [{
                 extra: "auto_increment"
             },
             {
-                field: "userName",
+                field: "username",
                 type: "varchar(255)",
                 null: "not null",
                 extra: ""
             },
             {
-                field: "lastName",
+                field: "lastname",
                 type: "varchar(255)",
                 null: "not null",
                 extra: ""
             },
             {
-                field: "firstName",
+                field: "firstname",
                 type: "varchar(255)",
                 null: "not null",
                 extra: ""
@@ -150,7 +150,7 @@ const dbTables = [{
                 extra: ""
             },
             {
-                field: "compagnyName",
+                field: "companyName",
                 type: "varchar(255)",
                 null: "not null",
                 extra: ""
