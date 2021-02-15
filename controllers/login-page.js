@@ -76,6 +76,9 @@ exports.login = (req, res) => {
 exports.logout = (req, res) => {
         req.logout();
         console.log(req);
+        res.json({
+            authenticated: req.isAuthenticated()
+        });
     }
     /**
      * le transformer en promesse dès que possible

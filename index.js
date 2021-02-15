@@ -12,6 +12,12 @@ app.use(configuration.bodyParser.urlencoded())
 app.use(configuration.bodyParser.json());
 app.use(configuration.passport.initialize());
 app.use(configuration.passport.session());
+app.use(configuration.cookieParser());
+app.use(configuration.session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+}));
 require('./passeport/config');
 // Routes 
 app.use('/welcome', configuration.welcomeRoutes);

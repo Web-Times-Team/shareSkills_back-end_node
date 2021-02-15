@@ -10,6 +10,6 @@ const loginPage = require('../controllers/login-page');
  */
 router.post('/add-user', loginPage.addUser);
 router.post('/login', passport.authenticate('local'), loginPage.login);
-router.get('/logout', loginPage.logout)
+router.get('/logout', loginPage.logout);
 
 module.exports = router;
