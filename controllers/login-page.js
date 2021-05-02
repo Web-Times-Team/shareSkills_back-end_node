@@ -74,15 +74,23 @@ exports.login = (req, res) => {
      * @param {*} res 
      */
 exports.logout = (req, res) => {
-        req.logout();
-        console.log(req);
-        res.json({
-            authenticated: req.isAuthenticated()
-        });
-    }
-    /**
-     * le transformer en promesse dès que possible
-     */
+    req.logout();
+    res.json({
+        authenticated: req.isAuthenticated()
+    });
+}
+
+/**
+ * logout user
+ * @param {*} req 
+ * @param {*} res 
+ */
+exports.isAuthenticated = async(req, res) => {
+    console.log(req);
+    res.json({
+        authenticated: req.isAuthenticated()
+    });
+}
 cryptingPassword = (password) => {
 
     return new Promise((resolve, reject) => {

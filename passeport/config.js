@@ -36,10 +36,14 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser(async(id, done) => {
     try {
-        user = await dbInterfaceWrapper.getDataFromTableWhere(id, usersTable);
-        done(err, user);
-    } catch {
+        user = await dbInterfaceWrapper.getDataFromTableWhere({ id }, usersTable);
+        if (!user) {
+            return done(new Error('user not found'));
+        }
+        done(null, user);
 
+    } catch (err) {
+        done(err);
     }
 })
 

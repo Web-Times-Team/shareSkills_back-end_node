@@ -10,14 +10,22 @@ const configuration = require('./configure');
 app.use(configuration.cors());
 app.use(configuration.bodyParser.urlencoded())
 app.use(configuration.bodyParser.json());
-app.use(configuration.passport.initialize());
-app.use(configuration.passport.session());
-app.use(configuration.cookieParser());
 app.use(configuration.session({
     secret: 'keyboard cat',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 3600000,
+        httpOnly: false
+    }
 }));
+app.use(configuration.passport.initialize());
+app.use(configuration.passport.session());
+app.use(configuration.cookieParser());
+// it is more appropriate to add secret to node ENV
+
+
+
 require('./passeport/config');
 // Routes 
 app.use('/welcome', configuration.welcomeRoutes);
