@@ -13,11 +13,7 @@ app.use(configuration.bodyParser.json());
 app.use(configuration.session({
     secret: 'keyboard cat',
     resave: false,
-    saveUninitialized: false,
-    cookie: {
-        maxAge: 3600000,
-        httpOnly: false
-    }
+    saveUninitialized: false
 }));
 app.use(configuration.passport.initialize());
 app.use(configuration.passport.session());
